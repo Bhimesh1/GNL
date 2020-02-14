@@ -6,11 +6,12 @@
 /*   By: fcoelho <fcoelho@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 00:35:34 by fcoelho           #+#    #+#             */
-/*   Updated: 2020/02/14 05:22:48 by fcoelho          ###   ########.fr       */
+/*   Updated: 2020/02/14 07:09:26 by fcoelho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
 int		ft_strlen(const char *str)
 {
 	int i;
@@ -82,5 +83,17 @@ char	*ft_strchr(const char *s, int c)
 		}
 		str++;
 	}
+	return (str);
+}
+
+void	*ft_memset(void *str, int c, size_t len)
+{
+	char			*strr;
+	unsigned char	car;
+
+	strr = str;
+	car = (unsigned char)c;
+	while (len--)
+		*(strr++) = car;
 	return (str);
 }
