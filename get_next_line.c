@@ -53,8 +53,6 @@ static int		mgk(char **str, char **line)
 		if (str)
 			free(*str);
 		*str = temp;
-		if ((*str)[0] == '\0')
-			free(*str);
 	}
 	else
 	{
@@ -82,7 +80,7 @@ int				get_next_line(int fd, char **line)
 {
 	int			retaux;
 	char		buffer[BUFFER_SIZE + 1];
-	static char *str[4096];
+	static char *str[100000000];
 	char		*temp;
 
 	if (fd < 0 && line == NULL)
