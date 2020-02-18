@@ -27,14 +27,22 @@ static char		*putlil(char const *str, unsigned int len)
 	unsigned int	i;
 	char			*line;
 
-	line = ft_calloc(1, len + 1);
 	i = 0;
-	while (i < len)
+	line = ft_calloc(1, len);
+	if (str)
 	{
-		line[i] = str[i];
-		i++;
+		while (i < len)
+		{
+			line[i] = str[i];
+			i++;
+		}
 	}
-	line[i] = '\0';
+//	i > 0 ? (line[i - 1] = '\0') : (line[i] = 0);
+//	if (i > 0)
+		line[i - 1] = '\0';
+//	else
+//		line[0] = '\0';
+//	
 	return (line);
 }
 
@@ -62,6 +70,7 @@ static int		mgk(char **str, char **line)
 			free(*str);
 			*str = NULL;
 		}
+		return (0);
 	}
 	return (1);
 }
@@ -71,7 +80,10 @@ static int		raux(char **str, char **line, int retaux, int fd)
 	if (retaux < 0)
 		return (-1);
 	else if (retaux == 0 && str[fd] == NULL)
+	{
+		*line[0] = '\0';
 		return (0);
+	}
 	else
 		return (mgk(&str[fd], line));
 }
@@ -80,7 +92,7 @@ int				get_next_line(int fd, char **line)
 {
 	int			retaux;
 	char		buffer[BUFFER_SIZE + 1];
-	static char *str[100000000];
+	static char *str[1000000000];
 	char		*temp;
 
 	if (fd < 0 && line == NULL)
