@@ -6,7 +6,11 @@
 /*   By: fcoelho <fcoelho@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 23:01:18 by fcoelho           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2020/02/18 16:46:07 by fcoelho          ###   ########.fr       */
+=======
+/*   Updated: 2020/02/18 16:16:41 by fcoelho          ###   ########.fr       */
+>>>>>>> tests
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +31,22 @@ static char		*putlil(char const *str, unsigned int len)
 	unsigned int	i;
 	char			*line;
 
-	line = ft_calloc(1, len + 1);
 	i = 0;
-	while (i < len)
+	line = ft_calloc(1, len);
+	if (str)
 	{
-		line[i] = str[i];
-		i++;
+		while (i < len)
+		{
+			line[i] = str[i];
+			i++;
+		}
 	}
+//	i > 0 ? (line[i - 1] = '\0') : (line[i] = 0);
+//	if (i > 0)
+		line[i - 1] = '\0';
+//	else
+//		line[0] = '\0';
+//	
 	return (line);
 }
 
@@ -49,10 +62,9 @@ static int		mgk(char **str, char **line)
 	{
 		*line = putlil(&(*str)[0], len + 1);
 		temp = ft_strdup(&((*str)[len + 1]));
-		free(*str);
-		*str = temp;
-		if ((*str)[0] == '\0')
+		if (str)
 			free(*str);
+		*str = temp;
 	}
 	else
 	{
@@ -62,6 +74,7 @@ static int		mgk(char **str, char **line)
 			free(*str);
 			*str = NULL;
 		}
+		return (0);
 	}
 	return (1);
 }
@@ -71,7 +84,10 @@ static int		raux(char **str, char **line, int retaux, int fd)
 	if (retaux < 0)
 		return (-1);
 	else if (retaux == 0 && str[fd] == NULL)
+	{
+		*line[0] = '\0';
 		return (0);
+	}
 	else
 		return (mgk(&str[fd], line));
 }
@@ -80,7 +96,7 @@ int				get_next_line(int fd, char **line)
 {
 	int			retaux;
 	char		buffer[BUFFER_SIZE + 1];
-	static char *str[4096];
+	static char *str[1000000000];
 	char		*temp;
 
 	if (fd < 0 && line == NULL)
