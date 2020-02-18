@@ -6,7 +6,7 @@
 /*   By: fcoelho <fcoelho@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 23:01:18 by fcoelho           #+#    #+#             */
-/*   Updated: 2020/02/14 09:10:47 by fcoelho          ###   ########.fr       */
+/*   Updated: 2020/02/18 16:16:41 by fcoelho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static char		*putlil(char const *str, unsigned int len)
 		line[i] = str[i];
 		i++;
 	}
+	line[i] = '\0';
 	return (line);
 }
 
@@ -49,7 +50,8 @@ static int		mgk(char **str, char **line)
 	{
 		*line = putlil(&(*str)[0], len + 1);
 		temp = ft_strdup(&((*str)[len + 1]));
-		free(*str);
+		if (str)
+			free(*str);
 		*str = temp;
 		if ((*str)[0] == '\0')
 			free(*str);
