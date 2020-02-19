@@ -81,7 +81,7 @@ static int		raux(char **str, char **line, int retaux, int fd)
 		return (-1);
 	else if (retaux == 0 && str[fd] == NULL)
 	{
-		*line[0] = '\0';
+		*line = ft_calloc(1, 1);
 		return (0);
 	}
 	else
@@ -92,11 +92,12 @@ int				get_next_line(int fd, char **line)
 {
 	int			retaux;
 	char		buffer[BUFFER_SIZE + 1];
-	static char *str[1000000000];
+	static char *str[4096];
 	char		*temp;
 
 	if (fd < 0 && line == NULL)
 		return (-1);
+	retaux = 0;
 	while ((retaux = read(fd, &buffer, BUFFER_SIZE)) > 0)
 	{
 		buffer[retaux] = '\0';
