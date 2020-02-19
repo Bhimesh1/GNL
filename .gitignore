@@ -6,3 +6,5 @@ main*
 cmake-build-debug
 CMakeLists.txt
 .idea
+tests
+.DS_Store

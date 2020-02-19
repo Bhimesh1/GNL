@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcoelho <fcoelho@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/13 23:01:18 by fcoelho           #+#    #+#             */
-/*   Updated: 2020/02/18 16:16:41 by fcoelho          ###   ########.fr       */
+/*   Created: 2020/02/19 00:52:16 by fcoelho           #+#    #+#             */
+/*   Updated: 2020/02/19 02:17:05 by fcoelho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,7 @@ static char		*putlil(char const *str, unsigned int len)
 			i++;
 		}
 	}
-//	i > 0 ? (line[i - 1] = '\0') : (line[i] = 0);
-//	if (i > 0)
-		line[i - 1] = '\0';
-//	else
-//		line[0] = '\0';
-//	
+	line[i - 1] = '\0';
 	return (line);
 }
 
@@ -58,14 +53,13 @@ static int		mgk(char **str, char **line)
 	{
 		*line = putlil(&(*str)[0], len + 1);
 		temp = ft_strdup(&((*str)[len + 1]));
-		if (str)
-			free(*str);
+		free(*str);
 		*str = temp;
 	}
 	else
 	{
 		*line = ft_strdup(*str);
-		if (str != NULL && *str != NULL)
+		if (*str != NULL)
 		{
 			free(*str);
 			*str = NULL;
@@ -95,10 +89,9 @@ int				get_next_line(int fd, char **line)
 	static char *str[4096];
 	char		*temp;
 
-	if (fd < 0 && line == NULL)
+	if (fd < 0)
 		return (-1);
-	retaux = 0;
-	while ((retaux = read(fd, &buffer, BUFFER_SIZE)) > 0)
+	while ((retaux = (int)read(fd, &buffer, BUFFER_SIZE)) > 0)
 	{
 		buffer[retaux] = '\0';
 		if (str[fd] == NULL)
