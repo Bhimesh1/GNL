@@ -3,3 +3,6 @@ main*
 *.gch
 *.txt
 *.out
+cmake-build-debug
+CMakeLists.txt
+.idea
