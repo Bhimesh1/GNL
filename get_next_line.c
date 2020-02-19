@@ -6,7 +6,7 @@
 /*   By: fcoelho <fcoelho@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 00:52:16 by fcoelho           #+#    #+#             */
-/*   Updated: 2020/02/19 04:34:31 by fcoelho          ###   ########.fr       */
+/*   Updated: 2020/02/19 04:45:43 by fcoelho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static int		raux(char **str, char **line, int retaux, int fd)
 		return (-1);
 	else if (retaux == 0 && str[fd] == NULL)
 	{
-		*line = ft_calloc(1, 1);
+		*line = ft_strdup("");
 		return (0);
 	}
 	else
