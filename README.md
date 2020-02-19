@@ -3,8 +3,9 @@ Uma função que me devolve uma nova linha até a última, sempre que chamada de
 
 ## Toc
 
-- [O que é o GNL?]
-- [Como testar o GNL?]
+- [O que é o GNL?](#o-que-é-o-gnl)
+- [Como testar o GNL?](#como-testar-o-gnl)
+
 ### O que é o GNL?
 O **GNL** (get_next_line) é uma função que nos permite chamar uma linha de cada vez de um arquivo passado como parametro até a última linha. Essa função, dependendo de como implementada, se parece muito com o comando `cat` do terminal.
 
