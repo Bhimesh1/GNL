@@ -1,4 +1,4 @@
-###### Essa versão está ultrapassada e não contém os bônus. A versão no meu [Libft](https://github.com/fecoelho/Libft) está atualizada e contém os bônus.
+###### ⚠️ Essa versão está ultrapassada e não contém os bônus. A versão no meu [Libft](https://github.com/fecoelho/Libft) está atualizada e contém os bônus.
 
 # GNL
 Uma função que me devolve uma nova linha até a última, sempre que chamada dentro do programa.
