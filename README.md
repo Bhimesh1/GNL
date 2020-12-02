@@ -22,3 +22,6 @@ Aqui estão alguns links de programas de teste que são ótimos para testar impl
 
 Para testar a função basta escolher qual testador quer usar e seguir o passo a passo de como usá-lo na minha função.
 Existem muitos outros testadores, esses apenas foram os que eu mais utilizei ao longo do processo de criação do código.
+
+---
+![GitHub top language](https://img.shields.io/github/languages/top/fecoelho/GNL?color=purple) ![Lines of code](https://img.shields.io/tokei/lines/github/fecoelho/GNL?color=purple) 
